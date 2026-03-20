@@ -1,0 +1,1231 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"
+    />
+    <title>Afro Raiponce — Beauté capillaire</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #1a1a1a;
+        color: #f5f0e8;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+      }
+
+      /* Navigation plus sophistiquée */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 5%;
+        background: rgba(26, 26, 26, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 215, 190, 0.15);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.4s ease;
+      }
+
+      .navbar.scrolled {
+        padding: 0.8rem 5%;
+        background: rgba(10, 10, 10, 0.95);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .logo h1 {
+        font-size: 1.8rem;
+        background: linear-gradient(135deg, #e8c1a0, #d4a5a5);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.5px;
+        transition: transform 0.3s ease;
+      }
+
+      .logo h1:hover {
+        transform: scale(1.02);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2.5rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #f0e0d0;
+        font-weight: 400;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        position: relative;
+        transition: color 0.3s;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #e8c1a0, #d4a5a5);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #e8c1a0;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .nav-icons {
+        display: flex;
+        gap: 1.5rem;
+        color: #e8c1a0;
+        font-size: 1.2rem;
+      }
+
+      .nav-icons i {
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .nav-icons i:hover {
+        color: #d4a5a5;
+        transform: translateY(-2px);
+      }
+
+      /* Hero avec image de fond */
+      .hero {
+        position: relative;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 0 1rem 3rem 1rem;
+        border-radius: 0 0 40px 40px;
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("image.jpg");
+        background-size: cover;
+        background-position: center 30%;
+        background-repeat: no-repeat;
+        z-index: -2;
+        animation: zoomInOut 20s infinite alternate ease-in-out;
+      }
+
+      @keyframes zoomInOut {
+        0% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1.1);
+        }
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.7) 0%,
+          rgba(139, 90, 75, 0.4) 100%
+        );
+        z-index: -1;
+      }
+
+      .hero-content {
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        padding: 3rem 5rem;
+        border-radius: 60px;
+        border: 1px solid rgba(255, 215, 190, 0.3);
+        transform: translateY(0);
+        animation: float 6s infinite ease-in-out;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        max-width: 80%;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .hero-content h2 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        background: linear-gradient(135deg, #ffffff, #e8c1a0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-content p {
+        font-size: 1.3rem;
+        font-weight: 300;
+        color: #f0e0d0;
+        letter-spacing: 1px;
+      }
+
+      /* Catégories améliorées */
+      .category-nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 3rem 5%;
+        padding: 0.5rem;
+      }
+
+      .cat-btn {
+        background: rgba(40, 35, 35, 0.8);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(232, 193, 160, 0.3);
+        padding: 1rem 2.2rem;
+        border-radius: 50px;
+        font-weight: 500;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        color: #f0e0d0;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .cat-btn.active {
+        background: linear-gradient(135deg, #b07d62, #8b5a4b);
+        color: white;
+        border-color: transparent;
+        box-shadow: 0 8px 25px rgba(176, 125, 98, 0.5);
+        transform: translateY(-2px);
+      }
+
+      .cat-btn:hover {
+        background: rgba(232, 193, 160, 0.2);
+        border-color: #e8c1a0;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(232, 193, 160, 0.3);
+      }
+
+      /* Produits avec animations */
+      .products-section {
+        padding: 0 5% 5rem;
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+        margin-top: 2rem;
+      }
+
+      .product-card {
+        background: linear-gradient(145deg, #26211e, #1f1b18);
+        border-radius: 30px;
+        padding: 2rem 1.5rem 2rem;
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border: 1px solid rgba(232, 193, 160, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .product-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.05),
+          transparent
+        );
+        transition: left 0.7s;
+      }
+
+      .product-card:hover {
+        transform: translateY(-15px) scale(1.02);
+        box-shadow: 0 30px 45px rgba(176, 125, 98, 0.3);
+        border-color: rgba(232, 193, 160, 0.4);
+      }
+
+      .product-card:hover::before {
+        left: 100%;
+      }
+
+      .product-img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 1.5rem;
+        border: 4px solid #8b5a4b;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+        transition:
+          transform 0.5s,
+          border-color 0.3s;
+      }
+
+      .product-card:hover .product-img {
+        transform: rotate(5deg) scale(1.05);
+        border-color: #e8c1a0;
+      }
+
+      .product-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        color: #f0e0d0;
+      }
+
+      .product-category {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #e8c1a0;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      .product-price {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #d4a5a5;
+        margin: 0.8rem 0 1.5rem;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+
+      .whatsapp-btn {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 60px;
+        font-weight: 600;
+        font-size: 1rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        cursor: pointer;
+        transition: all 0.4s;
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .whatsapp-btn::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition:
+          width 0.6s,
+          height 0.6s;
+      }
+
+      .whatsapp-btn:hover::before {
+        width: 300px;
+        height: 300px;
+      }
+
+      .whatsapp-btn i {
+        font-size: 1.3rem;
+        transition: transform 0.3s;
+      }
+
+      .whatsapp-btn:hover i {
+        transform: scale(1.2);
+      }
+
+      /* Avis avec captures WhatsApp */
+      .testimonials {
+        background: linear-gradient(135deg, #1f1b18 0%, #2a221e 100%);
+        padding: 5rem 5%;
+        border-radius: 40px 40px 0 0;
+        margin-top: 3rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .testimonials::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #e8c1a0, transparent);
+      }
+
+      .testimonials h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 3rem;
+        color: #e8c1a0;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+
+      .testimonial-card {
+        background: #0f0e0d;
+        border-radius: 25px;
+        padding: 1.2rem;
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6);
+        transition: all 0.4s;
+        border: 1px solid #3a2e28;
+        animation: fadeInUp 0.6s ease-out;
+        animation-fill-mode: both;
+      }
+
+      .testimonial-card:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .testimonial-card:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      .testimonial-card:nth-child(4) {
+        animation-delay: 0.6s;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        border-color: #e8c1a0;
+        box-shadow: 0 30px 45px rgba(176, 125, 98, 0.4);
+      }
+
+      .whatsapp-capture {
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        display: block;
+        transition: transform 0.5s;
+        border: 3px solid #2a2a2a;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+      }
+
+      .testimonial-card:hover .whatsapp-capture {
+        transform: scale(1.02);
+      }
+
+      /* Footer */
+      footer {
+        background: #0a0a0a;
+        padding: 3rem 5% 2rem;
+        border-top: 1px solid #3a2e28;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .socials {
+        display: flex;
+        gap: 1.8rem;
+      }
+
+      .socials i {
+        font-size: 1.8rem;
+        color: #8b5a4b;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+
+      .socials i:hover {
+        color: #e8c1a0;
+        transform: translateY(-5px) scale(1.1);
+      }
+
+      /* Responsive amélioré */
+      @media (max-width: 1024px) {
+        .hero-content h2 {
+          font-size: 2.8rem;
+        }
+        .hero-content {
+          padding: 2.5rem 3rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          gap: 1rem;
+          padding: 1rem;
+        }
+
+        .nav-links {
+          gap: 1.5rem;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .hero {
+          min-height: 500px;
+          margin: 0 0.5rem 2rem;
+        }
+
+        .hero-content {
+          padding: 2rem 1.5rem;
+          max-width: 95%;
+        }
+
+        .hero-content h2 {
+          font-size: 2.2rem;
+        }
+
+        .hero-content p {
+          font-size: 1.1rem;
+        }
+
+        .products-grid {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 1.5rem;
+        }
+
+        .product-card {
+          padding: 1.5rem;
+        }
+
+        .testimonials h2 {
+          font-size: 2rem;
+        }
+
+        .testimonial-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          text-align: center;
+          gap: 1.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-content h2 {
+          font-size: 1.8rem;
+        }
+
+        .hero-content p {
+          font-size: 1rem;
+        }
+
+        .cat-btn {
+          padding: 0.8rem 1.5rem;
+          font-size: 0.9rem;
+        }
+
+        .product-img {
+          width: 150px;
+          height: 150px;
+        }
+
+        .product-title {
+          font-size: 1.2rem;
+        }
+
+        .product-price {
+          font-size: 1.5rem;
+        }
+
+        .whatsapp-btn {
+          padding: 0.8rem 1.5rem;
+          font-size: 0.9rem;
+        }
+      }
+
+      /* Loading animation */
+      .loading {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: #e8c1a0;
+        animation: spin 1s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Scrollbar personnalisée */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #1a1a1a;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #8b5a4b;
+        border-radius: 5px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #e8c1a0;
+      }
+
+      /* Styles pour la modale */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(4px);
+        animation: fadeIn 0.3s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .modal-content {
+        background: linear-gradient(145deg, #26211e, #1f1b18);
+        margin: 5% auto;
+        padding: 2.5rem;
+        border-radius: 30px;
+        width: 90%;
+        max-width: 450px;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+        border: 1px solid rgba(232, 193, 160, 0.2);
+        animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .modal-header {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: #e8c1a0;
+        text-align: center;
+      }
+
+      .modal-body {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: 500;
+        color: #f0e0d0;
+        margin-bottom: 0.8rem;
+        font-size: 1.1rem;
+      }
+
+      .form-group input {
+        width: 100%;
+        padding: 0.8rem 1.2rem;
+        border: 2px solid #3a2e28;
+        border-radius: 12px;
+        background: rgba(15, 14, 13, 0.8);
+        color: #f0e0d0;
+        font-size: 1rem;
+        transition: all 0.3s;
+        box-sizing: border-box;
+      }
+
+      .form-group input:focus {
+        outline: none;
+        border-color: #e8c1a0;
+        box-shadow: 0 0 10px rgba(232, 193, 160, 0.3);
+      }
+
+      .form-group input[type="number"] {
+        font-size: 1.2rem;
+      }
+
+      .price-summary {
+        background: rgba(139, 90, 75, 0.2);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border: 1px solid rgba(232, 193, 160, 0.3);
+        margin-bottom: 1.5rem;
+      }
+
+      .price-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.8rem;
+        color: #f0e0d0;
+        font-size: 1rem;
+      }
+
+      .price-row.total {
+        border-top: 1px solid rgba(232, 193, 160, 0.3);
+        padding-top: 0.8rem;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #d4a5a5;
+        margin-bottom: 0;
+      }
+
+      .modal-footer {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+      }
+
+      .btn-cancel,
+      .btn-confirm {
+        padding: 0.9rem 2rem;
+        border: none;
+        border-radius: 60px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        flex: 1;
+      }
+
+      .btn-cancel {
+        background: rgba(232, 193, 160, 0.2);
+        color: #f0e0d0;
+        border: 1px solid #e8c1a0;
+      }
+
+      .btn-cancel:hover {
+        background: rgba(232, 193, 160, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .btn-confirm {
+        background: linear-gradient(135deg, #25d366, #128c7e);
+        color: white;
+        border: none;
+      }
+
+      .btn-confirm:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+      }
+
+      .btn-confirm:active {
+        transform: translateY(0);
+      }
+
+      @media (max-width: 480px) {
+        .modal-content {
+          margin: 20% auto;
+          padding: 1.5rem;
+        }
+
+        .modal-header {
+          font-size: 1.5rem;
+        }
+
+        .modal-footer {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation avec effet de scroll -->
+    <nav class="navbar" id="navbar">
+      <div class="logo">
+        <h1>✨ AFRO RAIPONCE</h1>
+      </div>
+      <div class="nav-links">
+        <a href="#accueil">Accueil</a>
+        <a href="#produits">Produits</a>
+        <a href="#avis">Avis</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <!-- <div class="nav-icons">
+        <i class="far fa-heart"></i>
+        <i class="far fa-user"></i>
+        <i class="fas fa-search"></i>
+      </div> -->
+    </nav>
+
+    <!-- Hero avec image de fond -->
+    <section id="accueil" class="hero">
+      <div class="hero-background"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h2>Révèle ta vraie nature</h2>
+        <p>Soins capillaires haut de gamme · Naturels & éthiques</p>
+      </div>
+    </section>
+
+    <!-- Catégories -->
+    <div class="category-nav" id="categoryNav">
+      <!-- <button class="cat-btn active" data-cat="all">Tous les produits</button>
+      <button class="cat-btn" data-cat="shampooing">Shampooings</button>
+      <button class="cat-btn" data-cat="masque">Masques</button> -->
+      <button class="cat-btn active" data-cat="huile">Huiles & sérums</button>
+    </div>
+
+    <!-- Section produits -->
+    <section id="produits" class="products-section">
+      <div class="products-grid" id="productsGrid">
+        <!-- Les produits seront injectés par JS -->
+      </div>
+    </section>
+
+    <!-- Avis avec captures WhatsApp -->
+    <section id="avis" class="testimonials">
+      <h2>💬 Ils parlent de nous sur WhatsApp</h2>
+      <div class="testimonial-grid" id="testimonialsGrid">
+        <!-- Les captures WhatsApp seront injectées par JS -->
+      </div>
+    </section>
+
+    <!-- Modale de quantité -->
+    <div id="quantityModal" class="modal">
+      <div class="modal-content">
+        <h2 class="modal-header">Confirmer votre commande</h2>
+        <div class="modal-body">
+          <div id="productDetails"></div>
+          <div class="form-group">
+            <label for="quantityInput">Quantité souhaitée :</label>
+            <input
+              type="number"
+              id="quantityInput"
+              name="quantity"
+              min="1"
+              value="1"
+            />
+          </div>
+          <div class="form-group">
+            <label for="addressInput">Adresse de livraison :</label>
+            <input
+              type="text"
+              id="addressInput"
+              name="address"
+              placeholder="Ex: Godomey, Akron, Akpakpa..."
+              required
+            />
+          </div>
+          <div class="price-summary">
+            <div class="price-row">
+              <span>Prix unitaire :</span>
+              <span id="unitPrice">0 FCFA</span>
+            </div>
+            <div class="price-row">
+              <span>Quantité :</span>
+              <span id="quantityDisplay">1</span>
+            </div>
+            <div class="price-row total">
+              <span>Total à payer :</span>
+              <span id="totalPrice">0 FCFA</span>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-cancel" id="cancelBtn">Annuler</button>
+          <button class="btn-confirm" id="confirmBtn">
+            <i class="fab fa-whatsapp"></i> Envoyer à WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+      <div class="footer-content">
+        <p>© 2026 Afro Raiponce — Beauté capillaire</p>
+        <div class="socials">
+          <i class="fab fa-whatsapp"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-tiktok"></i>
+          <i class="fab fa-pinterest"></i>
+        </div>
+        <p>Godomey · Livraison rapide</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        // Variables pour la modale
+        let currentProduct = null;
+        const modal = document.getElementById("quantityModal");
+        const closeModal = () => {
+          modal.style.display = "none";
+          currentProduct = null;
+        };
+
+        // Catalogue produits enrichi
+        const products = [
+          // {
+          //   id: 1,
+          //   name: "Shampooing Hydra-Kératine",
+          //   category: "shampooing",
+          //   price: 24.9,
+          //   img: "produit.jpg",
+          //   catLabel: "SHAMPOOING",
+          // },
+          // {
+          //   id: 2,
+          //   name: "Masque Réparation Extrême",
+          //   category: "masque",
+          //   price: 32.5,
+          //   img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+          //   catLabel: "MASQUE",
+          // },
+          // {
+          //   id: 3,
+          //   name: "Huile Sèche Or & Argan",
+          //   category: "huile",
+          //   price: 28.9,
+          //   img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+          //   catLabel: "HUILE & SÉRUM",
+          // },
+          // {
+          //   id: 4,
+          //   name: "Shampooing Volume & Éclat",
+          //   category: "shampooing",
+          //   price: 22.3,
+          //   img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+          //   catLabel: "SHAMPOOING",
+          // },
+          // {
+          //   id: 5,
+          //   name: "Masque à la Rose de Damas",
+          //   category: "masque",
+          //   price: 34.9,
+          //   img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+          //   catLabel: "MASQUE",
+          // },
+          {
+            id: 6,
+            name: "L'Elixir Pousse - 100% Naturel",
+            category: "huile",
+            price: 3000,
+            img: "produit.jpg",
+            catLabel: "AFRO RAIPONCE",
+          },
+        ];
+
+        // Captures WhatsApp (images représentatives des témoignages)
+        const whatsappCaptures = [
+          {
+            img: "avis.png",
+            alt: "Avis WhatsApp - Marie L.",
+          },
+          {
+            img: "avis.png",
+            alt: "Avis WhatsApp - Sophie K.",
+          },
+          {
+            img: "avis.png",
+            alt: "Avis WhatsApp - Clara D.",
+          },
+          {
+            img: "avis.png",
+            alt: "Avis WhatsApp - Aïcha B.",
+          },
+        ];
+
+        const productsGrid = document.getElementById("productsGrid");
+        const testimonialsGrid = document.getElementById("testimonialsGrid");
+        const catButtons = document.querySelectorAll(".cat-btn");
+        const navbar = document.getElementById("navbar");
+
+        // Effet de scroll sur la navbar
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        });
+
+        // Rendu des produits
+        function renderProducts(category = "all") {
+          const filtered =
+            category === "all"
+              ? products
+              : products.filter((p) => p.category === category);
+
+          // Animation de chargement
+          productsGrid.innerHTML =
+            '<div class="loading" style="margin: 2rem auto;"></div>';
+
+          setTimeout(() => {
+            productsGrid.innerHTML = filtered
+              .map((p) => {
+                return `
+                            <div class="product-card" data-cat="${p.category}" style="animation: fadeInUp 0.6s ease-out;">
+                                <img src="${p.img}" alt="${p.name}" class="product-img" loading="lazy">
+                                <span class="product-category">${p.catLabel}</span>
+                                <h3 class="product-title">${p.name}</h3>
+                                <div class="product-price">${Math.round(p.price)} FCFA</div>
+                                <button class="whatsapp-btn" data-product="${p.name} - ${Math.round(p.price)} FCFA" data-id="${p.id}">
+                                    <i class="fab fa-whatsapp"></i> Commander
+                                </button>
+                            </div>
+                        `;
+              })
+              .join("");
+
+            // Ajout des événements WhatsApp
+            document.querySelectorAll(".whatsapp-btn").forEach((btn) => {
+              btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                const productName =
+                  this.dataset.product || "Produit capillaire";
+                const productId = parseInt(this.dataset.id);
+                const product = products.find((p) => p.id === productId);
+
+                if (product) {
+                  currentProduct = {
+                    ...product,
+                    displayName: productName,
+                  };
+
+                  // Remplir la modale
+                  document.getElementById("productDetails").innerHTML = `
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                      <p style="color: #e8c1a0; font-weight: 500; margin-bottom: 0.5rem;">Produit sélectionné :</p>
+                      <p style="color: #f0e0d0; font-size: 1.2rem; font-weight: 600;">${product.name}</p>
+                    </div>
+                  `;
+                  document.getElementById("unitPrice").textContent =
+                    `${Math.round(product.price)} FCFA`;
+                  document.getElementById("quantityInput").value = 1;
+                  document.getElementById("addressInput").value = "";
+                  updateTotal();
+
+                  // Afficher la modale
+                  modal.style.display = "block";
+                }
+              });
+            });
+
+            // Fonction de mise à jour du total
+            const updateTotal = () => {
+              const quantity =
+                parseInt(document.getElementById("quantityInput").value) || 1;
+              const total = Math.round(currentProduct.price * quantity);
+              document.getElementById("quantityDisplay").textContent = quantity;
+              document.getElementById("totalPrice").textContent =
+                `${total} FCFA`;
+            };
+
+            document
+              .getElementById("quantityInput")
+              .addEventListener("input", updateTotal);
+          }, 300);
+        }
+
+        // Rendu des captures WhatsApp
+        function renderTestimonials() {
+          testimonialsGrid.innerHTML = whatsappCaptures
+            .map((capture, index) => {
+              return `
+                        <div class="testimonial-card">
+                            <img src="${capture.img}" alt="${capture.alt}" class="whatsapp-capture" loading="lazy">
+                        </div>
+                    `;
+            })
+            .join("");
+        }
+
+        // Filtres catégories avec animation
+        catButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            catButtons.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            const cat = btn.dataset.cat;
+            renderProducts(cat);
+          });
+        });
+
+        // Navigation fluide avec offset pour la navbar
+        document.querySelectorAll(".nav-links a").forEach((link) => {
+          link.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+            if (href.startsWith("#")) {
+              e.preventDefault();
+              const targetId = href.substring(1);
+              const targetEl = document.getElementById(targetId);
+              if (targetEl) {
+                const navbarHeight = navbar.offsetHeight;
+                const targetPosition =
+                  targetEl.getBoundingClientRect().top +
+                  window.pageYOffset -
+                  navbarHeight;
+                window.scrollTo({
+                  top: targetPosition,
+                  behavior: "smooth",
+                });
+              }
+            }
+          });
+        });
+
+        // Événements de la modale
+        document
+          .getElementById("cancelBtn")
+          .addEventListener("click", closeModal);
+
+        modal.addEventListener("click", function (e) {
+          if (e.target === modal) {
+            closeModal();
+          }
+        });
+
+        document
+          .getElementById("confirmBtn")
+          .addEventListener("click", function () {
+            const address = document
+              .getElementById("addressInput")
+              .value.trim();
+
+            if (!address) {
+              alert("Veuillez renseigner votre adresse de livraison");
+              return;
+            }
+
+            if (currentProduct) {
+              const quantity =
+                parseInt(document.getElementById("quantityInput").value) || 1;
+              const total = Math.round(currentProduct.price * quantity);
+              const phoneNumber = "2290153007134"; // À remplacer par votre numéro
+              const message = encodeURIComponent(
+                `Bonjour ! Je souhaite commander :\n\nProduit : ${currentProduct.name}\nQuantité : ${quantity}\nPrix unitaire : ${Math.round(currentProduct.price)} FCFA\nTotal à payer : ${total} FCFA\n\nAdresse de livraison : ${address}`,
+              );
+              window.open(
+                `https://wa.me/${phoneNumber}?text=${message}`,
+                "_blank",
+              );
+              closeModal();
+            }
+          });
+
+        // Initialisation
+        renderProducts("all");
+        renderTestimonials();
+      })();
+    </script>
+
+    <!-- Ajustement pour le scroll padding -->
+    <style>
+      html {
+        scroll-padding-top: 100px;
+        scroll-behavior: smooth;
+      }
+    </style>
+  </body>
+</html>
